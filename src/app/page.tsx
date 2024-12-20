@@ -3,7 +3,7 @@ import { fetchEvents } from "@/lib/db-operation";
 
 export const dynamic = "force-dynamic";
 
-export default async function FrogHubEvents() {
+export default async function LitverseEvents() {
   const events = await fetchEvents();
 
   return (

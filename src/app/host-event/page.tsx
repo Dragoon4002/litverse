@@ -165,7 +165,11 @@ export default function HostEventPage() {
               Host an Event
             </CardTitle>
             <CardDescription>
-              Fill in the details to create your event on FrogHub
+              <p>Fill in the details for your lit event</p>
+              <p className="text-red-500">
+                Only the description can be updated. Fill in the details
+                carefully
+              </p>
             </CardDescription>
           </CardHeader>
           <CardContent>

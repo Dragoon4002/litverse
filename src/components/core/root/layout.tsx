@@ -71,19 +71,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 )}
               </div>
               <div className="flex items-center gap-4">
-                <Button
+                {/* <Button
                   variant="ghost"
                   size="icon"
                   className="text-gray-600 dark:text-zinc-300 hover:text-emerald-500 dark:hover:text-emerald-400 hover:bg-gray-100 dark:hover:bg-zinc-800"
                 >
                   <Bell className="h-5 w-5" />
-                </Button>
+                </Button> */}
                 <ThemeToggle />
                 <ConnectButton
                   theme={theme == "dark" ? "dark" : "light"}
                   client={client}
                   appMetadata={{
-                    name: "FrogHub",
+                    name: "LitVerse",
                     url: "http://localhost:3000",
                   }}
                   chains={[tBnb]}

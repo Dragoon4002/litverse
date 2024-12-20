@@ -12,7 +12,6 @@ import {
   toWei,
 } from "thirdweb";
 import { toast } from "@/hooks/use-toast";
-
 import Link from "next/link";
 import { ToastAction } from "@/components/ui/toast";
 
