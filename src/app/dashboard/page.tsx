@@ -76,7 +76,7 @@ export default function Dashboard() {
         const ids = await readContract({
           contract,
           method:
-            "function getUserEvents(address user) view returns (string[])",
+            "function getHostedEvents(address organizer) view returns (string[])",
           params: [activeAccount?.address],
         });
 

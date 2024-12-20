@@ -39,6 +39,7 @@ const HostedEventCard = ({ event }: { event: IEvent }) => {
       const { data } = await axios.post("/api/events/update", {
         id,
         description: editedDescription,
+        owner: activeAccount?.address,
       });
 
       if (data.success) {

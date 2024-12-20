@@ -5,11 +5,11 @@ import { ApiResponse } from "@/types/events";
 export async function POST(req: Request) {
   try {
     await dbConnect();
-    const { id, description } = await req.json();
+    const { id, description, owner } = await req.json();
 
     // Update the description of the event
     const updatedEvent = await Event.findOneAndUpdate(
-      { _id: id },
+      { _id: id, owner },
       { description },
       { new: true }
     );
