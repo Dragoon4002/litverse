@@ -114,7 +114,10 @@ export default function Dashboard() {
       <p className="text-center text-gray-600 dark:text-gray-400 mb-12 font-light">
         Manage and monitor your upcoming events
       </p>
-      {events["upcoming"].length > 0 || events["past"].length > 0 ? (
+
+      {loading ? (
+        <p className="text-2xl font-semibold text-emerald-500">Loading</p>
+      ) : events["upcoming"].length > 0 || events["past"].length > 0 ? (
         <>
           <div className="w-1/3">
             <Tabs defaultValue="upcoming" className="mb-8 p-2">
