@@ -108,7 +108,7 @@ export default function Dashboard() {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="text-5xl font-light mb-2 text-center text-gray-800 dark:text-gray-200">
+      <h1 className="text-5xl font-semibold mb-2 text-center text-emerald-500">
         Your Events
       </h1>
       <p className="text-center text-gray-600 dark:text-gray-400 mb-12 font-light">

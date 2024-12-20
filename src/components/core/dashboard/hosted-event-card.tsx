@@ -90,7 +90,9 @@ const HostedEventCard = ({ event }: { event: IEvent }) => {
   return (
     <div className="bg-white dark:bg-zinc-900 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 group">
       <Link href={`/events/${event._id}`}>
-        <div className="relative cursor-pointer h-56">
+        <div className="relative cursor-pointer h-56 overflow-hidden">
+          {" "}
+          {/* Add overflow-hidden here */}
           <Image
             src={event.eventImage}
             alt={event.title}
@@ -98,9 +100,11 @@ const HostedEventCard = ({ event }: { event: IEvent }) => {
             objectFit="cover"
             className="transition-all duration-500 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+          {/* goes up */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent transition-all duration-300" />{" "}
+          {/* Ensure this is positioned correctly */}
           <div className="absolute bottom-4 left-4 right-4">
-            <h2 className="text-2xl font-light text-white mb-2">
+            <h2 className="text-2xl font-semibold text-white mb-2">
               {event.title}
             </h2>
 
