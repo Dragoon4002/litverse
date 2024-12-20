@@ -114,27 +114,37 @@ export default function Dashboard() {
       <p className="text-center text-gray-600 dark:text-gray-400 mb-12 font-light">
         Manage and monitor your upcoming events
       </p>
-      <div className="w-1/2">
-        <Tabs defaultValue="upcoming" className="mb-8 p-2">
-          <TabsList className="grid w-full grid-cols-2 p-1 bg-gray-100 dark:bg-zinc-800 rounded-lg">
-            {["upcoming", "past"].map((tab) => (
-              <TabsTrigger
-                key={tab}
-                value={tab}
-                className="text-sm font-medium transition-all data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-700 data-[state=active]:text-emerald-500 rounded-md"
-                onClick={() => setActiveTab(tab as EventTabs)}
-              >
-                {tab.charAt(0).toUpperCase() + tab.slice(1)}
-              </TabsTrigger>
+      {events["upcoming"].length > 0 || events["past"].length > 0 ? (
+        <>
+          <div className="w-1/3">
+            <Tabs defaultValue="upcoming" className="mb-8 p-2">
+              <TabsList className="grid w-full grid-cols-2 p-1 bg-gray-100 dark:bg-zinc-800 rounded-lg">
+                {["upcoming", "past"].map((tab) => (
+                  <TabsTrigger
+                    key={tab}
+                    value={tab}
+                    className="text-sm font-medium transition-all data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-700 data-[state=active]:text-emerald-500 rounded-md"
+                    onClick={() => setActiveTab(tab as EventTabs)}
+                  >
+                    {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </Tabs>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {events[activeTab].map((event) => (
+              <HostedEventCard key={event._id} event={event} />
             ))}
-          </TabsList>
-        </Tabs>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {events[activeTab].map((event) => (
-          <HostedEventCard key={event._id} event={event} />
-        ))}
-      </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <p className="text-2xl font-semibold text-emerald-500">
+            No events hosted by you
+          </p>
+        </>
+      )}
     </div>
   );
 }
