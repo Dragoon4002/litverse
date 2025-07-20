@@ -1,7 +1,12 @@
 import { HomeEventCard, SearchBar } from "@/components/core";
 import { fetchEvents } from "@/lib/db-operation";
+import { Audiowide } from "next/font/google";
 
 export const dynamic = "force-dynamic";
+const audiowide = Audiowide({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 export default async function LitverseEvents() {
   const events = await fetchEvents();
@@ -11,7 +16,7 @@ export default async function LitverseEvents() {
       {/* Hero Section */}
       <section className="py-20 text-center">
         <div className="container mx-auto px-4">
-          <h2 className="mb-6 text-4xl font-bold md:text-6xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 bg-clip-text text-transparent">
+          <h2 className={`mb-6 text-4xl font-bold md:text-6xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 bg-clip-text text-transparent ${audiowide.className}`}>
             Discover Exciting Events
             <br />
             Near You

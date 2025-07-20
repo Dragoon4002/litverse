@@ -1,6 +1,10 @@
 import type { Config } from "tailwindcss";
 import { withUt } from "uploadthing/tw";
 
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
+
 export default withUt({
   darkMode: ["class"],
   content: [
@@ -67,7 +71,34 @@ export default withUt({
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      animation: {
+        aurora: "aurora 60s linear infinite",
+      },
+      keyframes: {
+        aurora: {
+          from: {
+            backgroundPosition: "50% 50%, 50% 50%",
+          },
+          to: {
+            backgroundPosition: "350% 50%, 350% 50%",
+          },
+        },
+      },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+  plugins: [
+    require("tailwindcss-animate"), 
+    require("@tailwindcss/typography"),
+    // Add color variable plugin for better color handling
+    function ({ addUtilities, theme }: any) {
+      const colors = flattenColorPalette(theme("colors"));
+      const utilities = Object.fromEntries(
+        Object.entries(colors).map(([key, value]) => [
+          `.text-${key}`,
+          { color: value },
+        ])
+      );
+      addUtilities(utilities);
+    },
+  ],
 }) satisfies Config;

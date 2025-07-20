@@ -10,6 +10,12 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { readContract } from "thirdweb";
 import { useActiveAccount } from "thirdweb/react";
+import { Audiowide } from "next/font/google";
+
+const audiowide = Audiowide({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 // Mock data for user's events
 const userEvents = [
@@ -108,7 +114,7 @@ export default function Dashboard() {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="text-5xl font-semibold mb-2 text-center text-emerald-500">
+      <h1 className={`text-5xl font-semibold mb-2 text-center text-emerald-500 ${audiowide.className}`}>
         Your Events
       </h1>
       <p className="text-center text-gray-600 dark:text-gray-400 mb-12 font-light">

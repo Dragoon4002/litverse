@@ -6,6 +6,32 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@layer components {
+  .glass{
+      backdrop-filter: blur(16px);         /* blur effect */
+      -webkit-backdrop-filter: blur(16px); /* Safari support */
+      /* border: 1px solid #ffffff60; subtle border/ */
+      box-shadow: 5px 10px 40px #000000f0;  /* soft shadow */
+      transition: all 0.3s ease;
+    }
+}
+
+@theme inline {
+  --animate-aurora: aurora 60s linear infinite;
+  @keyframes aurora {
+    from {
+      background-position:
+        50% 50%,
+        50% 50%;
+    }
+    to {
+      background-position:
+        350% 50%,
+        350% 50%;
+    }
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

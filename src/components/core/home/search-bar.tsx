@@ -28,9 +28,8 @@ const SearchBar = () => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <Button type="submit" className="absolute right-0 top-0 h-full">
-        <Search className="h-4 w-4 mr-2" />
-        Search
+      <Button type="submit" className="absolute right-0 top-0">
+        <Search className="h-5 w-5" />
       </Button>
     </form>
   );

@@ -43,6 +43,13 @@ type Config = {
   venue: string;
 };
 
+import { Audiowide } from "next/font/google";
+
+const audiowide = Audiowide({
+  subsets: ["latin"],
+  weight: "400",
+});
+
 export default function HostEventPage() {
   const [description, setDescription] = useState("");
   const [previewMode, setPreviewMode] = useState(false);
@@ -157,11 +164,11 @@ export default function HostEventPage() {
   }, [activeAccount, isConnecting]);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-zinc-950 py-12">
+    <div className="min-h-screen bg-transparent py-12">
       <div className="container mx-auto px-4">
-        <Card className="max-w-3xl mx-auto">
+        <Card className="max-w-3xl glass bg-white/40 dark:bg-black/40 backdrop-blur-lg mx-auto">
           <CardHeader>
-            <CardTitle className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">
+            <CardTitle className={`text-3xl font-bold text-emerald-600 dark:text-emerald-400 ${audiowide.className}`}>
               Host an Event
             </CardTitle>
             <CardDescription>
